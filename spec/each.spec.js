@@ -5,28 +5,21 @@ describe("Array.prototype.each", function() {
     });
 
     it("Should give the value as the first callback argument", function() {
-        var i = 0;
-        var result = null;
-        [ 1 ].each(function(value) { i++; result = value; });
-        expect(i).toEqual(1);
-        expect(result).toEqual(1);
+        var result = [];
+        [ 1, 2 ].each(function(value) { result.push(value); });
+        expect(result).toEqual([ 1, 2 ]);
     });
 
     it("Should give the index as the second callback argument", function() {
-        var i = 0;
-        var result = null;
-        [ 1 ].each(function(value, id) { i++; result = id; });
-        expect(i).toEqual(1);
-        expect(result).toEqual(0);
+        var result = [];
+        [ 1, 2 ].each(function(value, id) { result.push(id); });
+        expect(result).toEqual([ 0, 1 ]);
     });
 
     it("Should iterate over all the array items", function() {
-        var result = [];
-        [ 1, 2 ].each(function(value, id) {
-            result.push(id);
-            result.push(value);
-        });
-        expect(result).toEqual([ 0, 1, 1, 2 ]);
+        var i = 0;
+        [ 1, 2, 3, 4, 5, 6 ].each(function(value) { i++; });
+        expect(i).toEqual(6);
     });
 
 });
