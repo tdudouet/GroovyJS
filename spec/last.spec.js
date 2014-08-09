@@ -1,12 +1,12 @@
-describe("Array.prototype.last", function() {
+describe("Array.prototype.gLast", function() {
 
-    it("Should throw an error if the array is empty", function() {
-        expect([].last.bind([])).toThrowError("Cannot access last() element of an empty array !");
+    it("Should return null if the array is empty", function() {
+        expect([].gLast()).toBe(null);
     });
 
     it("Should return the last item of the array", function() {
-        expect([ 1 ].last()).toBe(1);
-        expect([ 1, 2 ].last()).toBe(2);
+        expect([ 1 ].gLast()).toBe(1);
+        expect([ 1, 2 ].gLast()).toBe(2);
     });
 
 });

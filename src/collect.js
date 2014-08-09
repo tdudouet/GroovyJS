@@ -1,6 +1,6 @@
-if(!Array.prototype.collect) {
+if(!Array.prototype.gCollect) {
 
-    Array.prototype.collect = function(callback) {
+    Array.prototype.gCollect = function(callback) {
         var result = [];
         for(var i=0 ; i<this.length ; i++) {
             if(callback === undefined) {

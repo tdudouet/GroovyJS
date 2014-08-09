@@ -1,11 +1,9 @@
-if(!Array.prototype.last) {
+if(!Array.prototype.gLast) {
 
-    Array.prototype.last = function() {
-        // Check if at least one item exists
+    Array.prototype.gLast = function() {
         if(this.length === 0) {
-            throw new Error("Cannot access last() element of an empty array !");
+            return null;
         }
-        //
         return this[this.length - 1];
     };
 

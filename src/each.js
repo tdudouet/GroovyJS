@@ -1,6 +1,6 @@
-if(!Array.prototype.each) {
+if(!Array.prototype.gEach) {
 
-    Array.prototype.each = function(callback) {
+    Array.prototype.gEach = function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");

@@ -1,6 +1,6 @@
-if(!Array.prototype.collectEntries) {
+if(!Array.prototype.gCollectEntries) {
 
-    Array.prototype.collectEntries = function(callback) {
+    Array.prototype.gCollectEntries = function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");

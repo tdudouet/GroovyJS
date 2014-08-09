@@ -1,11 +1,9 @@
-if(!Array.prototype.first) {
+if(!Array.prototype.gFirst) {
 
-    Array.prototype.first = function() {
-        // Check if at least one item exists
+    Array.prototype.gFirst = function() {
         if(this.length === 0) {
-            throw new Error("Cannot access first() element of an empty array !");
+            return null;
         }
-        //
         return this[0];
     };
 

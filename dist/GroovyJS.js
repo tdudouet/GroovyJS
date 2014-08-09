@@ -1,6 +1,6 @@
-if(!Array.prototype.collect) {
+if(!Array.prototype.gCollect) {
 
-    Array.prototype.collect = function(callback) {
+    Array.prototype.gCollect = function(callback) {
         var result = [];
         for(var i=0 ; i<this.length ; i++) {
             if(callback === undefined) {
@@ -14,9 +14,9 @@ if(!Array.prototype.collect) {
 
 }
 
-if(!Array.prototype.collectEntries) {
+if(!Array.prototype.gCollectEntries) {
 
-    Array.prototype.collectEntries = function(callback) {
+    Array.prototype.gCollectEntries = function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -37,9 +37,9 @@ if(!Array.prototype.collectEntries) {
 
 }
 
-if(!Array.prototype.each) {
+if(!Array.prototype.gEach) {
 
-    Array.prototype.each = function(callback) {
+    Array.prototype.gEach = function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -52,9 +52,9 @@ if(!Array.prototype.each) {
 
 }
 
-if(!Array.prototype.find) {
+if(!Array.prototype.gFind) {
 
-    Array.prototype.find = function(callback) {
+    Array.prototype.gFind = function(callback) {
         for(var i=0 ; i<this.length ; i++) {
             var item = this[i];
             if(callback === undefined || callback(item, i)) {
@@ -66,9 +66,9 @@ if(!Array.prototype.find) {
 
 }
 
-if(!Array.prototype.findAll) {
+if(!Array.prototype.gFindAll) {
 
-    Array.prototype.findAll = function(callback) {
+    Array.prototype.gFindAll = function(callback) {
         var result = [];
         for(var i=0 ; i<this.length ; i++) {
             var item = this[i];
@@ -81,27 +81,38 @@ if(!Array.prototype.findAll) {
 
 }
 
-if(!Array.prototype.first) {
+if(!Array.prototype.gFirst) {
 
-    Array.prototype.first = function() {
-        // Check if at least one item exists
+    Array.prototype.gFirst = function() {
         if(this.length === 0) {
-            throw new Error("Cannot access first() element of an empty array !");
+            return null;
         }
-        //
         return this[0];
     };
 
 }
 
-if(!Array.prototype.last) {
+if(!Array.prototype.gJoin) {
 
-    Array.prototype.last = function() {
-        // Check if at least one item exists
-        if(this.length === 0) {
-            throw new Error("Cannot access last() element of an empty array !");
+    Array.prototype.gJoin = function(separator) {
+        var result = '';
+        for(var i=0 ; i<this.length ; i++) {
+            result += this[i];
+            if(separator !== undefined && i < this.length - 1) {
+            	result += separator;
+            }
         }
-        //
+        return result;
+    };
+
+}
+
+if(!Array.prototype.gLast) {
+
+    Array.prototype.gLast = function() {
+        if(this.length === 0) {
+            return null;
+        }
         return this[this.length - 1];
     };
 

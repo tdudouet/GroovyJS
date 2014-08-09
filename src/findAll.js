@@ -1,6 +1,6 @@
-if(!Array.prototype.findAll) {
+if(!Array.prototype.gFindAll) {
 
-    Array.prototype.findAll = function(callback) {
+    Array.prototype.gFindAll = function(callback) {
         var result = [];
         for(var i=0 ; i<this.length ; i++) {
             var item = this[i];
