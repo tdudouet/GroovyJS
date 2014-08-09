@@ -1,6 +1,10 @@
 {
   "name": "GroovyJS",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tdudouet/GroovyJS.git"
+  },
   "homepage": "https://github.com/tdudouet/GroovyJS",
   "authors": [
     "Thomas Dudouet <thomas@dudouet.fr> (http://www.dudouet.fr/)"
