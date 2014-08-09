@@ -1,0 +1,22 @@
+{
+  "name": "GroovyJS",
+  "version": "1.0.0",
+  "homepage": "https://github.com/tdudouet/GroovyJS",
+  "authors": [
+    "Thomas Dudouet <thomas@dudouet.fr> (http://www.dudouet.fr/)"
+  ],
+  "description": "Groovy Collection API for JavaScript",
+  "keywords": [
+    "groovy",
+    "collection",
+    "array"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "spec"
+  ],
+  "main": "./dist/GroovyJS.js"
+}
