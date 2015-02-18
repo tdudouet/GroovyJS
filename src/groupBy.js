@@ -18,3 +18,26 @@ if(!Array.prototype.gGroupBy) {
     };
 
 }
+
+if(!Object.prototype.gGroupBy) {
+
+    Object.prototype.gGroupBy = function(callback) {
+        // Callback is required
+        if(callback === undefined) {
+            throw new Error("Callback function is required !");
+        }
+        //
+        var result = {};
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                var group = callback(key, this[key]);
+                if(result[group] === undefined) {
+                    result[group] = {};
+                }
+                result[group][key] = this[key];
+            }
+        }
+        return result;
+    };
+
+}

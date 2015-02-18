@@ -14,6 +14,25 @@ if(!Array.prototype.gCollect) {
 
 }
 
+if(!Object.prototype.gCollect) {
+
+    Object.prototype.gCollect = function(callback) {
+        // Callback is required
+        if(callback === undefined) {
+            throw new Error("Callback function is required !");
+        }
+        //
+        var result = [];
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                result.push(callback(key, this[key]));
+            }
+        }
+        return result;
+    };
+
+}
+
 if(!Array.prototype.gCollectEntries) {
 
     Array.prototype.gCollectEntries = function(callback) {
@@ -37,6 +56,30 @@ if(!Array.prototype.gCollectEntries) {
 
 }
 
+if(!Object.prototype.gCollectEntries) {
+
+    Object.prototype.gCollectEntries = function(callback) {
+        var result = {};
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                if(callback === undefined) {
+                    result[key] = this[key];
+                } else {
+                    var items = callback(key, this[key]);
+                    // Check transformation
+                    if(!(items instanceof Array) || items.length != 2) {
+                        throw new Error("Callback function should return an array of two items !");
+                    }
+                    //
+                    result[items[0]] = items[1];    
+                }
+            }
+        }
+        return result;
+    };
+
+}
+
 if(!Array.prototype.gEach) {
 
     Array.prototype.gEach = function(callback) {
@@ -52,6 +95,22 @@ if(!Array.prototype.gEach) {
 
 }
 
+if(!Object.prototype.gEach) {
+
+    Object.prototype.gEach = function(callback) {
+        // Callback is required
+        if(callback === undefined) {
+            throw new Error("Callback function is required !");
+        }
+        //
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                callback(key, this[key]);
+            }
+        }
+    };
+
+}
 if(!Array.prototype.gFind) {
 
     Array.prototype.gFind = function(callback) {
@@ -81,6 +140,21 @@ if(!Array.prototype.gFindAll) {
 
 }
 
+if(!Object.prototype.gFindAll) {
+
+    Object.prototype.gFindAll = function(callback) {
+        var result = {};
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                if(callback === undefined || callback(key, this[key])) {
+                    result[key] = this[key];
+                }
+            }
+        }
+        return result;
+    };
+
+}
 if(!Array.prototype.gFirst) {
 
     Array.prototype.gFirst = function() {
@@ -113,6 +187,28 @@ if(!Array.prototype.gGroupBy) {
 
 }
 
+if(!Object.prototype.gGroupBy) {
+
+    Object.prototype.gGroupBy = function(callback) {
+        // Callback is required
+        if(callback === undefined) {
+            throw new Error("Callback function is required !");
+        }
+        //
+        var result = {};
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                var group = callback(key, this[key]);
+                if(result[group] === undefined) {
+                    result[group] = {};
+                }
+                result[group][key] = this[key];
+            }
+        }
+        return result;
+    };
+
+}
 if(!Array.prototype.gJoin) {
 
     Array.prototype.gJoin = function(separator) {

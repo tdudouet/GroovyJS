@@ -35,3 +35,41 @@ describe("Array.prototype.gCollectEntries", function() {
     });
 
 });
+
+describe("Object.prototype.gCollectEntries", function() {
+
+    it("Should return an empty object if the object is empty", function() {
+        expect({}.gCollectEntries()).toEqual({});
+    });
+
+    it("Should return non modified items if no callback is given", function() {
+        expect({ "a": 1, "b": 2 }.gCollectEntries()).toEqual({ "a": 1, "b": 2 });
+    });
+
+    it("Should give the key as the first callback argument", function() {
+        expect({ "a": 1 }.gCollectEntries(function(key) { return [ 1, key ]; })).toEqual({ 1: "a" });
+    });
+
+    it("Should give the value as the second callback argument", function() {
+        expect({ "a": 1 }.gCollectEntries(function(key, value) { return [ 2, value ]; })).toEqual({ 2: 1 });
+    });
+
+    it("Should throw an error if the given callback doesn't return an array of two items", function() {
+        expect({}.gCollectEntries.bind([ 1 ], function(value) {
+          return value;
+        })).toThrowError("Callback function should return an array of two items !");
+        expect({}.gCollectEntries.bind([ 1 ], function(value) {
+          return [];
+        })).toThrowError("Callback function should return an array of two items !");
+        expect({}.gCollectEntries.bind([ 1 ], function(value) {
+          return [ value ];
+        })).toThrowError("Callback function should return an array of two items !");
+    });
+
+    it("Should return items mapped using the given callback", function() {
+        expect({ "a": 1, "b": 2 }.gCollectEntries(function(key, value) {
+            return [ value, key ];
+        })).toEqual({ 1: "a", 2: "b" });
+    });
+
+});

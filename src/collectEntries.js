@@ -20,3 +20,27 @@ if(!Array.prototype.gCollectEntries) {
     };
 
 }
+
+if(!Object.prototype.gCollectEntries) {
+
+    Object.prototype.gCollectEntries = function(callback) {
+        var result = {};
+        for(var key in this) {
+            if(this.hasOwnProperty(key)) {
+                if(callback === undefined) {
+                    result[key] = this[key];
+                } else {
+                    var items = callback(key, this[key]);
+                    // Check transformation
+                    if(!(items instanceof Array) || items.length != 2) {
+                        throw new Error("Callback function should return an array of two items !");
+                    }
+                    //
+                    result[items[0]] = items[1];    
+                }
+            }
+        }
+        return result;
+    };
+
+}
