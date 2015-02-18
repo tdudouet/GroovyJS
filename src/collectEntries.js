@@ -23,7 +23,7 @@ if(!Array.prototype.gCollectEntries) {
 
 if(!Object.prototype.gCollectEntries) {
 
-    Object.prototype.gCollectEntries = function(callback) {
+    Object.defineProperty(Object.prototype, 'gCollectEntries', { value: function(callback) {
         var result = {};
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
@@ -41,6 +41,6 @@ if(!Object.prototype.gCollectEntries) {
             }
         }
         return result;
-    };
+    }});
 
 }

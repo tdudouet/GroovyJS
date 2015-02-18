@@ -15,7 +15,7 @@ if(!Array.prototype.gFindAll) {
 
 if(!Object.prototype.gFindAll) {
 
-    Object.prototype.gFindAll = function(callback) {
+    Object.defineProperty(Object.prototype, 'gFindAll', { value: function(callback) {
         var result = {};
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
@@ -25,6 +25,6 @@ if(!Object.prototype.gFindAll) {
             }
         }
         return result;
-    };
+    }});
 
 }

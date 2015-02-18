@@ -21,7 +21,7 @@ if(!Array.prototype.gGroupBy) {
 
 if(!Object.prototype.gGroupBy) {
 
-    Object.prototype.gGroupBy = function(callback) {
+    Object.defineProperty(Object.prototype, 'gGroupBy', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -38,6 +38,6 @@ if(!Object.prototype.gGroupBy) {
             }
         }
         return result;
-    };
+    }});
 
 }

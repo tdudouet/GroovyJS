@@ -16,7 +16,7 @@ if(!Array.prototype.gCollect) {
 
 if(!Object.prototype.gCollect) {
 
-    Object.prototype.gCollect = function(callback) {
+    Object.defineProperty(Object.prototype, 'gCollect', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -29,7 +29,7 @@ if(!Object.prototype.gCollect) {
             }
         }
         return result;
-    };
+    }});
 
 }
 
@@ -58,7 +58,7 @@ if(!Array.prototype.gCollectEntries) {
 
 if(!Object.prototype.gCollectEntries) {
 
-    Object.prototype.gCollectEntries = function(callback) {
+    Object.defineProperty(Object.prototype, 'gCollectEntries', { value: function(callback) {
         var result = {};
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
@@ -76,7 +76,7 @@ if(!Object.prototype.gCollectEntries) {
             }
         }
         return result;
-    };
+    }});
 
 }
 
@@ -97,7 +97,7 @@ if(!Array.prototype.gEach) {
 
 if(!Object.prototype.gEach) {
 
-    Object.prototype.gEach = function(callback) {
+    Object.defineProperty(Object.prototype, 'gEach', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -108,7 +108,7 @@ if(!Object.prototype.gEach) {
                 callback(key, this[key]);
             }
         }
-    };
+    }});
 
 }
 if(!Array.prototype.gFind) {
@@ -142,7 +142,7 @@ if(!Array.prototype.gFindAll) {
 
 if(!Object.prototype.gFindAll) {
 
-    Object.prototype.gFindAll = function(callback) {
+    Object.defineProperty(Object.prototype, 'gFindAll', { value: function(callback) {
         var result = {};
         for(var key in this) {
             if(this.hasOwnProperty(key)) {
@@ -152,7 +152,7 @@ if(!Object.prototype.gFindAll) {
             }
         }
         return result;
-    };
+    }});
 
 }
 if(!Array.prototype.gFirst) {
@@ -189,7 +189,7 @@ if(!Array.prototype.gGroupBy) {
 
 if(!Object.prototype.gGroupBy) {
 
-    Object.prototype.gGroupBy = function(callback) {
+    Object.defineProperty(Object.prototype, 'gGroupBy', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -206,7 +206,7 @@ if(!Object.prototype.gGroupBy) {
             }
         }
         return result;
-    };
+    }});
 
 }
 if(!Array.prototype.gJoin) {

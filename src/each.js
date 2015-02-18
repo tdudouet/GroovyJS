@@ -15,7 +15,7 @@ if(!Array.prototype.gEach) {
 
 if(!Object.prototype.gEach) {
 
-    Object.prototype.gEach = function(callback) {
+    Object.defineProperty(Object.prototype, 'gEach', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -26,6 +26,6 @@ if(!Object.prototype.gEach) {
                 callback(key, this[key]);
             }
         }
-    };
+    }});
 
 }

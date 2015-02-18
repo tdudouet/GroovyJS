@@ -16,7 +16,7 @@ if(!Array.prototype.gCollect) {
 
 if(!Object.prototype.gCollect) {
 
-    Object.prototype.gCollect = function(callback) {
+    Object.defineProperty(Object.prototype, 'gCollect', { value: function(callback) {
         // Callback is required
         if(callback === undefined) {
             throw new Error("Callback function is required !");
@@ -29,6 +29,6 @@ if(!Object.prototype.gCollect) {
             }
         }
         return result;
-    };
+    }});
 
 }
