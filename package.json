@@ -1,6 +1,6 @@
 {
   "name": "GroovyJS",
-  "version": "1.2.0",
+  "version": "1.3.1",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.0",
