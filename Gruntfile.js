@@ -24,6 +24,9 @@ module.exports = function(grunt) {
         },
 
         jshint: {
+            options: {
+                reporterOutput: ''
+            },
             test: {
                 files: {
                     src: [ "spec/**/*.spec.js" ]
